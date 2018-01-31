@@ -52,8 +52,8 @@ public class processor extends AbstractProcessor{
                 mMessager.printMessage(Diagnostic.Kind.ERROR, "Subscribe annotation can only be used on method");
                 return false;
             }
-
         }
+
         return  true;
     }
 

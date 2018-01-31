@@ -12,7 +12,7 @@ class DefaultJavaCode extends GenerateJavaCode {
 
     @Override
     String addPackage() {
-        return null;
+        return "package site.gemus.rxeventbus;\n";
     }
 
     @Override

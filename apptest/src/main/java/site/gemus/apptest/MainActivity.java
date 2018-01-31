@@ -1,4 +1,4 @@
-package site.gemus.rxeventbus;
+package site.gemus.apptest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package site.gemus.rxeventbus;
+package site.gemus.apptest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
