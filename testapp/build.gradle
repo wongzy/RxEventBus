@@ -25,5 +25,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:+'
+// Because RxAndroid releases are few and far between, it is recommended you also
+// explicitly depend on RxJava's latest version for bug fixes and new features.
+    implementation 'io.reactivex.rxjava2:rxjava:+'
     implementation project(':rxeventbus')
 }

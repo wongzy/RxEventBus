@@ -1,4 +1,4 @@
-package site.gemus.apptest;
+package site.gemus.app;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
