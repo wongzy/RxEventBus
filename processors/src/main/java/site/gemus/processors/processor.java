@@ -29,9 +29,12 @@ import site.gemus.annotation.Subscribe;
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("site.gemus.annotation.Subscribe")
 public class processor extends AbstractProcessor{
-    private Elements mElementUtils; //基于元素进行操作的工具方法
-    private Filer mFileCreator;     //代码创建者
-    private Messager mMessager;     //日志，提示者，提示错误、警
+    //基于元素进行操作的工具方法
+    private Elements mElementUtils;
+    //代码创建者
+    private Filer mFileCreator;
+    //日志，提示者，提示错误、警
+    private Messager mMessager;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
@@ -45,6 +48,9 @@ public class processor extends AbstractProcessor{
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         mMessager.printMessage(Diagnostic.Kind.NOTE, "processing..");
         Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(Subscribe.class);
+        if (elements.isEmpty()) {
+            return false;
+        }
         Iterator<? extends Element> iterator = elements.iterator();
         if (iterator.hasNext()) {
             TypeElement typeElement = (TypeElement) iterator.next();
@@ -53,7 +59,9 @@ public class processor extends AbstractProcessor{
                 return false;
             }
         }
+        GenerateJavaCode generateJavaCode = new DefaultJavaCode();
 
+        generateJavaCode.generate(elements);
         return  true;
     }
 
