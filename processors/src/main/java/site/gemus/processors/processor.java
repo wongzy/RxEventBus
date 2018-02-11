@@ -59,9 +59,6 @@ public class processor extends AbstractProcessor{
                 return false;
             }
         }
-        GenerateJavaCode generateJavaCode = new DefaultJavaCode();
-
-        generateJavaCode.generate(elements);
         return  true;
     }
 

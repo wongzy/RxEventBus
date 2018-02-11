@@ -2,11 +2,11 @@ package site.gemus.testapp;
 
 import java.util.List;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import site.gemus.rxeventbus.EventMethodMessage;
-import site.gemus.rxeventbus.IProduceEventMethodMessage;
-import site.gemus.rxeventbus.ProxyMessageMethod;
+import site.gemus.annotation.ThreadMode;
+import site.gemus.processors.EventMethodMessage;
+import site.gemus.processors.ProxyMessageMethod;
+import site.gemus.processors.IProduceEventMethodMessage;
+
 
 /**
  * @author Jackdow
@@ -17,7 +17,7 @@ import site.gemus.rxeventbus.ProxyMessageMethod;
 public class ProduceEventMethodMessageImpl implements IProduceEventMethodMessage {
     @Override
     public synchronized void addEventMethodMessage(List<EventMethodMessage> eventMethodMessages) {
-        eventMethodMessages.add(new EventMethodMessage(Schedulers.computation(), "", "",
+        eventMethodMessages.add(new EventMethodMessage(ThreadMode.COMPUTATION, "", "",
                 new ProxyMessageMethod() {
             @Override
             public void doMethod(Object object, Object message) {
