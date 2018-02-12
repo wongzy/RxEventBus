@@ -1,11 +1,7 @@
 apply plugin: 'java-library'
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.squareup:javapoet:+'
-    implementation project(':baseLibrary')
 }
 
 sourceCompatibility = "1.7"

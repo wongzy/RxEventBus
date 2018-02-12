@@ -3,13 +3,13 @@ package site.gemus.app;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import site.gemus.app.R;
 
 
 /**
  * 主界面
  */
 public class MainActivity extends AppCompatActivity {
-    public static final int TEST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,1 +1,1 @@
-include ':testapp', ':rxeventbus', ':annotation', ':processors'
+include ':app', ':rxeventbus', ':processors', ':baseLibrary'

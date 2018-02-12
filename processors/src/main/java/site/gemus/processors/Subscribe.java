@@ -1,9 +1,11 @@
-package site.gemus.annotation;
+package site.gemus.processors;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import site.gemus.baselibrary.ThreadMode;
 
 /**
  * @author Jackdow

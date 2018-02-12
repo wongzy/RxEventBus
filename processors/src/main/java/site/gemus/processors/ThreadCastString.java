@@ -1,6 +1,6 @@
 package site.gemus.processors;
 
-import site.gemus.annotation.ThreadMode;
+import site.gemus.baselibrary.ThreadMode;
 
 /**
  * @author Jackdow
@@ -13,16 +13,16 @@ final class ThreadCastString {
         StringBuilder stringBuilder = new StringBuilder();
         switch (threadMode) {
             case IO:
-                stringBuilder.append("Schedulers.io()");
+                stringBuilder.append("ThreadMode.IO");
                 break;
             case MAIN:
-                stringBuilder.append("AndroidSchedulers.mainThread()");
+                stringBuilder.append("ThreadMode.MAIN");
                 break;
             case NEWTHREAD:
-                stringBuilder.append("Schedulers.newThread()");
+                stringBuilder.append("ThreadMode.NEWTHREAD");
                 break;
             case COMPUTATION:
-                stringBuilder.append("Schedulers.computation()");
+                stringBuilder.append("ThreadMode.COMPUTATION");
             default:
                 break;
         }

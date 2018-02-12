@@ -3,11 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RxEventBus.iml" filepath="$PROJECT_DIR$/RxEventBus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/testapp.iml" filepath="$PROJECT_DIR$/app/testapp.iml" />
       <module fileurl="file://D:\GithubClone\RxEventBus\testapp\app.iml" filepath="D:\GithubClone\RxEventBus\testapp\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseLibrary/baseLibrary.iml" filepath="$PROJECT_DIR$/baseLibrary/baseLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/processors/processors.iml" filepath="$PROJECT_DIR$/processors/processors.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxeventbus/rxeventbus.iml" filepath="$PROJECT_DIR$/rxeventbus/rxeventbus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testapp/testapp.iml" filepath="$PROJECT_DIR$/testapp/testapp.iml" />
     </modules>
   </component>
 </project>

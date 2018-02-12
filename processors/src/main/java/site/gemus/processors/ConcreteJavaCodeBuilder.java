@@ -1,21 +1,23 @@
 package site.gemus.processors;
 
-import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.TypeSpec;
 
-import java.lang.annotation.Annotation;
+import java.util.Iterator;
 import java.util.List;
 
 import java.util.Set;
 
 import javax.lang.model.element.Element;
-import javax.lang.model.element.Modifier;
+import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.PackageElement;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 
-import site.gemus.annotation.ThreadMode;
+import site.gemus.baselibrary.EventMethodMessage;
+import site.gemus.baselibrary.ProxyMessageMethod;
+import site.gemus.baselibrary.ThreadMode;
 
 
 /**
@@ -24,7 +26,7 @@ import site.gemus.annotation.ThreadMode;
  *          RxEventBus
  */
 
-class ConcreteJavaCodeBuilder extends AbstractJavaCodeBuilder {
+public class ConcreteJavaCodeBuilder extends AbstractJavaCodeBuilder {
     @Override
     protected JavaFile createFile(PackageElement packageElement, TypeSpec typeSpec) {
         return JavaFile.builder(packageElement.getQualifiedName().toString(), typeSpec)
@@ -32,22 +34,36 @@ class ConcreteJavaCodeBuilder extends AbstractJavaCodeBuilder {
                 .addStaticImport(ThreadMode.class)
                 .addStaticImport(EventMethodMessage.class)
                 .addStaticImport(ProxyMessageMethod.class)
-                .addStaticImport(IProduceEventMethodMessage.class)
                 .build();
     }
 
     @Override
     protected MethodSpec createMethod(Set<? extends Element> elements) {
-        MethodSpec methodSpec = MethodSpec.methodBuilder("addEventMethodMessage")
-                .addModifiers(Modifier.PUBLIC)
-                .addParameter(List.class, "eventMethodMessages")
-                .build();
-        //
-        return null;
+        MethodSpec.Builder methodSpecBuilder = MethodSpec.methodBuilder("addEventMethodMessage")
+                .addParameter(List.class, "eventMethodMessages");
+        Iterator<? extends Element> iterator = elements.iterator();
+        while (iterator.hasNext()) {
+            Element element = iterator.next();
+            TypeElement typeElement = (TypeElement) element;
+            String className = typeElement.getQualifiedName().toString();
+            String threadMode = ThreadCastString.getString(typeElement.getAnnotation(Subscribe.class).threadMode());
+            VariableElement variableElement = (VariableElement) element;
+            String methodName = variableElement.getEnclosingElement().getSimpleName().toString();
+            String paraName = ((ExecutableElement) element).getParameters().get(0).getSimpleName().toString();
+            methodSpecBuilder.addCode("((List<EventMethodMessage>) eventMethodMessages).add(new EventMethodMessage(" + "" +
+                    threadMode + "," + className + "," + paraName + ",\n" + " new ProxyMessageMethod() {\n" +
+                    "            @Override\n" +
+                    "            public void doMethod(Object object, Object message) {\n" +
+                    "((" + className + ")" + "object)" + "." + methodName + "((" + paraName + ")message);\n" +
+                    " }}));");
+        }
+        return methodSpecBuilder.build();
     }
 
     @Override
     protected TypeSpec createClass(MethodSpec methodSpec) {
-        return null;
+        return TypeSpec.classBuilder("ProduceEventMethodMessageImpl")
+                .addMethod(methodSpec)
+                .build();
     }
 }

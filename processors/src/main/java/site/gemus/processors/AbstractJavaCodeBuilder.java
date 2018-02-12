@@ -4,9 +4,7 @@ import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.Set;
 
 import javax.lang.model.element.Element;
@@ -18,7 +16,7 @@ import javax.lang.model.element.PackageElement;
  *          RxEventBus
  */
 
-abstract class AbstractJavaCodeBuilder {
+public abstract class AbstractJavaCodeBuilder {
     public final void build(Set<? extends Element> elements) {
         MethodSpec methodSpec = createMethod(elements);
         TypeSpec typeSpec = createClass(methodSpec);
@@ -31,7 +29,6 @@ abstract class AbstractJavaCodeBuilder {
     }
 
     /**
-     * 顶级java文件构造对象
      * @param packageElement 包元素
      * @param typeSpec 类构造对象
      * @return 顶级java文件构造对象

@@ -1,6 +1,4 @@
-package site.gemus.processors;
-
-import site.gemus.annotation.ThreadMode;
+package site.gemus.baselibrary;
 
 /**
  * @author Jackdow
