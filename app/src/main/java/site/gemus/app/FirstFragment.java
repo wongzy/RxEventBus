@@ -7,9 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import site.gemus.processors.Subscribe;
-import site.gemus.processors.ThreadMode;
-
+import site.gemus.rxeventbusannotation.Subscribe;
+import site.gemus.rxeventbusannotation.ThreadMode;
 
 /**
  * A simple {@link Fragment} subclass.

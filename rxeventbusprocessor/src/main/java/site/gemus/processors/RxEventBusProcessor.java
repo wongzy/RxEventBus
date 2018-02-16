@@ -3,7 +3,6 @@ package site.gemus.processors;
 import java.util.Iterator;
 import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.RoundEnvironment;
@@ -15,13 +14,16 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
+import site.gemus.rxeventbusannotation.Subscribe;
+
 
 /**
  * 注解处理器
+ * @author Jackdow
  */
-@SupportedAnnotationTypes("site.gemus.processors.Subscribe")
+@SupportedAnnotationTypes("site.gemus.annotation.Subscribe")
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
-public class processor extends AbstractProcessor{
+public class RxEventBusProcessor extends AbstractProcessor{
     private Messager mMessager;
 
     @Override

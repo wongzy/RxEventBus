@@ -15,9 +15,10 @@ import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 
-import site.gemus.baselibrary.EventMethodMessage;
-import site.gemus.baselibrary.ProxyMessageMethod;
-import site.gemus.baselibrary.ThreadMode;
+import site.gemus.rxeventbusannotation.EventMethodMessage;
+import site.gemus.rxeventbusannotation.ProxyMessageMethod;
+import site.gemus.rxeventbusannotation.Subscribe;
+import site.gemus.rxeventbusannotation.ThreadMode;
 
 
 /**

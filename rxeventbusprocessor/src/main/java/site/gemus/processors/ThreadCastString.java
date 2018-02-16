@@ -1,6 +1,7 @@
 package site.gemus.processors;
 
-import site.gemus.baselibrary.ThreadMode;
+
+import site.gemus.rxeventbusannotation.ThreadMode;
 
 /**
  * @author Jackdow

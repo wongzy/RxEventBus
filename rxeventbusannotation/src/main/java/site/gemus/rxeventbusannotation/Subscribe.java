@@ -1,11 +1,9 @@
-package site.gemus.processors;
+package site.gemus.rxeventbusannotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import site.gemus.baselibrary.ThreadMode;
 
 /**
  * @author Jackdow

@@ -1,4 +1,4 @@
-package site.gemus.baselibrary;
+package site.gemus.rxeventbusannotation;
 
 
 /**
