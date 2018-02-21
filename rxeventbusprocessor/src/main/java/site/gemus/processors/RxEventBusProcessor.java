@@ -22,7 +22,7 @@ import site.gemus.rxeventbusannotation.Subscribe;
  * @author Jackdow
  */
 @SupportedAnnotationTypes("site.gemus.annotation.Subscribe")
-@SupportedSourceVersion(SourceVersion.RELEASE_6)
+@SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class RxEventBusProcessor extends AbstractProcessor{
     private Messager mMessager;
 

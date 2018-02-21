@@ -5,9 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/RxEventBus.iml" filepath="$PROJECT_DIR$/RxEventBus.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\GithubClone\RxEventBus\testapp\app.iml" filepath="D:\GithubClone\RxEventBus\testapp\app.iml" />
+      <module fileurl="file://D:\GithubClone\RxEventBus\rxeventbusannotation\baseLibrary.iml" filepath="D:\GithubClone\RxEventBus\rxeventbusannotation\baseLibrary.iml" />
+      <module fileurl="file://D:\GithubClone\RxEventBus\rxeventbusprocessor\processors.iml" filepath="D:\GithubClone\RxEventBus\rxeventbusprocessor\processors.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxeventbus/rxeventbus.iml" filepath="$PROJECT_DIR$/rxeventbus/rxeventbus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rxeventbusannotation/baseLibrary.iml" filepath="$PROJECT_DIR$/rxeventbusannotation/baseLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rxeventbusprocessor/processors.iml" filepath="$PROJECT_DIR$/rxeventbusprocessor/processors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxeventbusannotation/rxeventbusannotation.iml" filepath="$PROJECT_DIR$/rxeventbusannotation/rxeventbusannotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxeventbusprocessor/rxeventbusprocessor.iml" filepath="$PROJECT_DIR$/rxeventbusprocessor/rxeventbusprocessor.iml" />
       <module fileurl="file://D:\GithubClone\RxEventBus\app\testapp.iml" filepath="D:\GithubClone\RxEventBus\app\testapp.iml" />
     </modules>
   </component>
