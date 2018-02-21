@@ -1,1 +1,1 @@
-include ':app', ':rxeventbus', ':rxeventbusprocessor', ':rxeventbusannotation'
+include ':app', ':rxeventbusprocessor', ':rxeventbusannotation'
