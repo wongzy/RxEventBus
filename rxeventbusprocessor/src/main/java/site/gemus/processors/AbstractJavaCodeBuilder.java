@@ -17,7 +17,7 @@ import javax.lang.model.element.PackageElement;
  */
 
 public abstract class AbstractJavaCodeBuilder {
-    public final void build(Set<? extends Element> elements) {
+     final void build(Set<? extends Element> elements) {
         MethodSpec methodSpec = createMethod(elements);
         TypeSpec typeSpec = createClass(methodSpec);
         JavaFile javaFile = createFile((PackageElement) elements.iterator().next(), typeSpec);

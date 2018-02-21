@@ -1,10 +1,13 @@
 package site.gemus.processors;
 
+import com.google.auto.service.AutoService;
+
 import java.util.Iterator;
 import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
@@ -21,8 +24,8 @@ import site.gemus.rxeventbusannotation.Subscribe;
  * 注解处理器
  * @author Jackdow
  */
-@SupportedAnnotationTypes("site.gemus.annotation.Subscribe")
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedAnnotationTypes("site.gemus.rxeventbusannotation.Subscribe")
+@AutoService(Processor.class)
 public class RxEventBusProcessor extends AbstractProcessor{
     private Messager mMessager;
 
@@ -37,6 +40,7 @@ public class RxEventBusProcessor extends AbstractProcessor{
         mMessager.printMessage(Diagnostic.Kind.NOTE, "processing..");
         Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(Subscribe.class);
         if (elements.isEmpty()) {
+            mMessager.printMessage(Diagnostic.Kind.ERROR, "Elements is empty!");
             return false;
         }
         Iterator<? extends Element> iterator = elements.iterator();
@@ -50,5 +54,10 @@ public class RxEventBusProcessor extends AbstractProcessor{
         AbstractJavaCodeBuilder abstractJavaCodeBuilder = new ConcreteJavaCodeBuilder();
         abstractJavaCodeBuilder.build(elements);
         return  true;
+    }
+
+    @Override
+    public SourceVersion getSupportedSourceVersion() {
+        return SourceVersion.latestSupported();
     }
 }
