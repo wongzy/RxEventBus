@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import site.gemus.rxeventbus.RxEventBus;
 import site.gemus.rxeventbusannotation.Subscribe;
 import site.gemus.rxeventbusannotation.ThreadMode;
 
@@ -32,5 +35,17 @@ public class FirstFragment extends Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageHandle(String s) {
         mTextView.setText(s);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        RxEventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RxEventBus.getDefault().unregister(this);
     }
 }

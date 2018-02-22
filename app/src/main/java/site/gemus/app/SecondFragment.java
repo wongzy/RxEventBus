@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import site.gemus.app.R;
+import site.gemus.rxeventbus.RxEventBus;
 
 
 /**
@@ -24,6 +26,10 @@ public class SecondFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,7 +41,8 @@ public class SecondFragment extends Fragment {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                RxEventBus.getDefault().post(mEditText.getText().toString());
+                Toast.makeText(getContext(), "send it", Toast.LENGTH_LONG).show();
             }
         });
         return view;

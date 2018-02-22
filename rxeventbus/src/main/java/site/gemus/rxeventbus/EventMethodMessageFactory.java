@@ -1,5 +1,6 @@
 package site.gemus.rxeventbus;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import site.gemus.rxeventbusannotation.EventMethodMessage;
@@ -22,8 +23,15 @@ class EventMethodMessageFactory extends AbstractEventMethodMessageFactory {
         if (mEventMethodMessages.isChecked()) {
             return mEventMethodMessages;
         } else {
-
-            //getEventMethodUtil.addEventMethod(mEventMethodMessages);
+            Class<?> tClass = null;
+            Method method = null;
+            try {
+                tClass = Class.forName("site.gemus.app.ProduceEventMethodMessageImpl");
+                method = tClass.getMethod("addEventMethodMessage", List.class);
+                method.invoke(tClass.newInstance(), mEventMethodMessages);
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
             mEventMethodMessages.setChecked(true);
             return mEventMethodMessages;
         }

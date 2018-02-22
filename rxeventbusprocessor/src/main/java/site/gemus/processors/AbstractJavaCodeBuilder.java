@@ -7,6 +7,7 @@ import com.squareup.javapoet.TypeSpec;
 import java.io.IOException;
 import java.util.Set;
 
+import javax.annotation.processing.Filer;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.PackageElement;
 
@@ -17,12 +18,12 @@ import javax.lang.model.element.PackageElement;
  */
 
 public abstract class AbstractJavaCodeBuilder {
-     final void build(Set<? extends Element> elements) {
+     final void build(Set<? extends Element> elements, Filer filer) {
         MethodSpec methodSpec = createMethod(elements);
         TypeSpec typeSpec = createClass(methodSpec);
         JavaFile javaFile = createFile( elements.iterator().next(), typeSpec);
         try {
-            javaFile.writeTo(System.out);
+            javaFile.writeTo(filer);
         }catch (IOException e) {
             e.printStackTrace();
         }
