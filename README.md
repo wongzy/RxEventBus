@@ -37,7 +37,9 @@ A EventBus based on RxJava2, using Retention.CLASS annotation.
 
 * Post
 
+```
 RxEventBus.getDefault().post(mEditText.getText().toString());
+```
 
 > Of cause you can post any kind of message, not just String
 
