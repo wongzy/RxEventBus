@@ -1,4 +1,4 @@
-### RxEventBus | [中文文档](https://github.com/JoshuaRogue/RxEventBus/blob/master/CREADME.md)
+# RxEventBus  |  [中文文档](https://github.com/JoshuaRogue/RxEventBus/blob/master/CREADME.md)
 
 A EventBus based on RxJava2, using Retention.CLASS annotation.
 
