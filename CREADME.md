@@ -1,12 +1,12 @@
-### RxEventBus | [中文文档](www.baidu.com)
+### RxEventBus 
 
-A EventBus based on RxJava2, using Retention.CLASS annotation.
+使用RxJava2和编译时注解实现的EventBus
 
-#### Getting Started
+#### 开始
 
-* Subscriber
+* 观察者
 
-1. register subscriber
+1. 注册观察者
 
 ```
 @Override
@@ -16,7 +16,7 @@ A EventBus based on RxJava2, using Retention.CLASS annotation.
     }
 ```
 
-2. write Subscribe method, like this 
+2. 编写对发来信息进行处理的函数
 
 ```
 @Subscribe(threadMode = ThreadMode.MAIN)
@@ -25,7 +25,7 @@ A EventBus based on RxJava2, using Retention.CLASS annotation.
     }
 ```
 
-3. don't forget unregister when activity or others destroyed
+3. 最后，别忘了反注册
 
 ```
 @Override
@@ -35,24 +35,24 @@ A EventBus based on RxJava2, using Retention.CLASS annotation.
     }
 ```
 
-* Post
+* 发送消息
 
 RxEventBus.getDefault().post(mEditText.getText().toString());
 
-> Of cause you can post any kind of message, not just String
+> 你可以发送任何类型的消息
 
-#### Install
+#### 安装
 
-this project isn't pushed to maven, if you want to use it, just 
+这个项目还没有被上传到maven仓库，如果你想要使用，可以
 
 ```
 git clone https://github.com/JoshuaRogue/RxEventBus.git
 ```
 
-and copy module to your project.
+然后将模块拷贝到自己的项目中
 
-It will be pushed to maven soon.
+这个项目会尽快上传到maven仓库以方便大家的使用
 
-#### demo
+#### 示例
 
 <img width="293" height="520" src="https://i.loli.net/2018/02/22/5a8e9f930b985.gif"/>
