@@ -40,13 +40,13 @@ public class RxEventBusProcessor extends AbstractProcessor{
         mMessager.printMessage(Diagnostic.Kind.NOTE, "processing..");
         Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(Subscribe.class);
         if (elements.isEmpty()) {
-            mMessager.printMessage(Diagnostic.Kind.ERROR, "Elements is empty!");
+            mMessager.printMessage(Diagnostic.Kind.WARNING, "Elements is empty!");
             return false;
         }
         Iterator<? extends Element> iterator = elements.iterator();
         if (iterator.hasNext()) {
-            TypeElement typeElement = (TypeElement) iterator.next();
-            if (typeElement.getKind() != ElementKind.METHOD) {
+            Element element = iterator.next();
+            if (element.getKind() != ElementKind.METHOD) {
                 mMessager.printMessage(Diagnostic.Kind.ERROR, "Subscribe annotation can only be used on method");
                 return false;
             }
@@ -58,6 +58,6 @@ public class RxEventBusProcessor extends AbstractProcessor{
 
     @Override
     public SourceVersion getSupportedSourceVersion() {
-        return SourceVersion.latestSupported();
+        return SourceVersion.RELEASE_7;
     }
 }

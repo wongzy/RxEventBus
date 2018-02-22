@@ -20,7 +20,7 @@ public abstract class AbstractJavaCodeBuilder {
      final void build(Set<? extends Element> elements) {
         MethodSpec methodSpec = createMethod(elements);
         TypeSpec typeSpec = createClass(methodSpec);
-        JavaFile javaFile = createFile((PackageElement) elements.iterator().next(), typeSpec);
+        JavaFile javaFile = createFile( elements.iterator().next(), typeSpec);
         try {
             javaFile.writeTo(System.out);
         }catch (IOException e) {
@@ -29,11 +29,11 @@ public abstract class AbstractJavaCodeBuilder {
     }
 
     /**
-     * @param packageElement 包元素
+     * @param element 注解对象
      * @param typeSpec 类构造对象
      * @return 顶级java文件构造对象
      */
-    protected abstract JavaFile createFile(PackageElement packageElement, TypeSpec typeSpec);
+    protected abstract JavaFile createFile(Element element, TypeSpec typeSpec);
 
     /**
      * 函数构造对象
