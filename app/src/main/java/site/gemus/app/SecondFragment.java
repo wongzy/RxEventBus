@@ -42,7 +42,6 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 RxEventBus.getDefault().post(mEditText.getText().toString());
-                Toast.makeText(getContext(), "send it", Toast.LENGTH_LONG).show();
             }
         });
         return view;

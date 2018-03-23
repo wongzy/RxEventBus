@@ -21,7 +21,10 @@ public abstract class AbstractJavaCodeBuilder {
      final void build(Set<? extends Element> elements, Filer filer) {
         MethodSpec methodSpec = createMethod(elements);
         TypeSpec typeSpec = createClass(methodSpec);
-        JavaFile javaFile = createFile( elements.iterator().next(), typeSpec);
+        Element element = elements.iterator().next();
+        JavaFile javaFile = createFile(element, typeSpec);
+        CreateAssistCode createAssistCode = new CreateAssistCode();
+        createAssistCode.buildAssistCode(element, filer);
         try {
             javaFile.writeTo(filer);
         }catch (IOException e) {

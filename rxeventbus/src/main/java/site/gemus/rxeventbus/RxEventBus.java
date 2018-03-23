@@ -51,18 +51,18 @@ public final class RxEventBus {
      * @param object 需要发送的事件
      */
     public void post(@NonNull Object object) {
-        mbus.onNext(object);
         Iterator<EventMethodMessage> eventMethodMessageIterator =
                 eventMethodMessageFactory.getEventMethodMessageList().iterator();
         Iterator<Object> objectIterator = mSet.iterator();
         while (eventMethodMessageIterator.hasNext()) {
             final EventMethodMessage eventMethodMessage = eventMethodMessageIterator.next();
-            Log.i("RxEventBus", "look for next one " + "object :" + object.getClass().getName()+ " paraName:" + eventMethodMessage.getParaName() );
+           // Log.i("RxEventBus", "look for next one " + "object :" + object.getClass().getName()+ " paraName:" + eventMethodMessage.getParaName() );
             if (eventMethodMessage.getParaName().equals(object.getClass().getName())) {
                 while (objectIterator.hasNext()) {
-                    Log.i("RxEvent", "look for next two");
+                  //  Log.i("RxEvent", "look for next two");
                     final Object o = objectIterator.next();
                     if (eventMethodMessage.getClassName().equals(o.getClass().getSimpleName())) {
+                        mbus.onNext(object);
                         mbus.observeOn(ThreadModeCastToSchedulersUtil.cast(eventMethodMessage.getSchedulers()))
                                 .subscribe(new Consumer<Object>() {
                                     @Override

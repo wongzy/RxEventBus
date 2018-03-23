@@ -1,5 +1,7 @@
 package site.gemus.rxeventbus;
 
+import android.util.Log;
+
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -26,7 +28,12 @@ class EventMethodMessageFactory extends AbstractEventMethodMessageFactory {
             Class<?> tClass = null;
             Method method = null;
             try {
-                tClass = Class.forName("site.gemus.app.ProduceEventMethodMessageImpl");
+                String string = null;
+                Class<?> aclass = Class.forName("site.gemus.rxeventbus.AssistTool");
+                Method method1 = aclass.getMethod("getPackageName");
+                string = (String) method1.invoke(aclass.newInstance());
+               // Log.e("String =", string);
+                tClass = Class.forName(string);
                 method = tClass.getMethod("addEventMethodMessage", List.class);
                 method.invoke(tClass.newInstance(), mEventMethodMessages);
             }catch (Exception e) {
