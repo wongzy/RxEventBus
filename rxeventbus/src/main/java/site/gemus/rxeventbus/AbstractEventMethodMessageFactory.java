@@ -2,6 +2,7 @@ package site.gemus.rxeventbus;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import site.gemus.rxeventbusannotation.EventMethodMessage;
@@ -17,6 +18,6 @@ abstract class AbstractEventMethodMessageFactory {
      *
      */
      volatile CheckedArrayList<EventMethodMessage> mEventMethodMessages
-            = new CheckedArrayList<>(new ArrayList<EventMethodMessage>());
+            = new CheckedArrayList<>(new LinkedList<EventMethodMessage>());
     abstract List<EventMethodMessage> getEventMethodMessageList();
 }

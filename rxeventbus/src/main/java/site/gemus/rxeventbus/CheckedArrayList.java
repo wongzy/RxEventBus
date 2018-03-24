@@ -1,6 +1,7 @@
 package site.gemus.rxeventbus;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * @author Jackdow
@@ -8,10 +9,10 @@ import java.util.ArrayList;
  *          RxEventBus
  * @param <T> 泛型类型
  */
-class CheckedArrayList<T> extends ArrayList<T> {
-    private ArrayList<T> mArrayList = null;
+class CheckedArrayList<T> extends LinkedList<T> {
+    private LinkedList<T> mArrayList = null;
     private boolean isChecked = false;
-    CheckedArrayList(ArrayList<T> arrayList) {
+    CheckedArrayList(LinkedList<T> arrayList) {
         this.mArrayList = arrayList;
     }
 

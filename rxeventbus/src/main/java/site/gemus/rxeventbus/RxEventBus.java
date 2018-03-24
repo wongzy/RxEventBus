@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 
@@ -23,7 +24,7 @@ import site.gemus.rxeventbusannotation.EventMethodMessage;
 public final class RxEventBus {
 
     private final FlowableProcessor<Object> mbus;
-    private Set<Object> mSet = new HashSet<>();
+    private Set<Object> mSet = new LinkedHashSet<>();
     private final AbstractEventMethodMessageFactory eventMethodMessageFactory;
 
     private RxEventBus() {
